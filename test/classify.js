@@ -4,6 +4,7 @@ var classifier = require('../lib/classifier.js');
 var Letter = classifier.Letter;
 var Digit = classifier.Digit;
 var Space = classifier.Space;
+var Other = classifier.Other;
 
 function all(items, value) {
     var l = items.length;
@@ -48,5 +49,14 @@ exports['whitespaces'] = function (test) {
     test.ok(Array.isArray(result));
     test.equal(result.length, 4);
     test.ok(all(result, Space));
+};
+
+exports['other'] = function (test) {
+    var result = classifier.classify('@!#$');
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 4);
+    test.ok(all(result, Other));
 };
 
