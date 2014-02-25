@@ -6,6 +6,7 @@ var Digit = classifier.Digit;
 var Space = classifier.Space;
 var Other = classifier.Other;
 var Punctuation = classifier.Punctuation;
+var Operator = classifier.Operator;
 
 function all(items, value) {
     var l = items.length;
@@ -68,5 +69,14 @@ exports['punctuations'] = function (test) {
     test.ok(Array.isArray(result));
     test.equal(result.length, 5);
     test.ok(all(result, Punctuation));
+};
+
+exports['operators'] = function (test) {
+    var result = classifier.classify('=!&|', { operators: "=!&|" });
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 4);
+    test.ok(all(result, Operator));
 };
 
