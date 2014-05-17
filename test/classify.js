@@ -5,7 +5,7 @@ var Letter = classifier.Letter;
 var Digit = classifier.Digit;
 var Space = classifier.Space;
 var Other = classifier.Other;
-var Punctuation = classifier.Punctuation;
+var Delimiter = classifier.Delimiter;
 var Operator = classifier.Operator;
 
 function all(items, value) {
@@ -62,13 +62,13 @@ exports['other'] = function (test) {
     test.ok(all(result, Other));
 };
 
-exports['punctuations'] = function (test) {
-    var result = classifier.classify(';,{}.', { punctuations: ";,{}." });
+exports['delimiters'] = function (test) {
+    var result = classifier.classify(';,{}.', { delimiters: ";,{}." });
     
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 5);
-    test.ok(all(result, Punctuation));
+    test.ok(all(result, Delimiter));
 };
 
 exports['operators'] = function (test) {
