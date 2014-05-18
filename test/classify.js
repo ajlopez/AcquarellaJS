@@ -1,12 +1,7 @@
 
 var classifier = require('../lib/classifier.js');
 
-var Letter = classifier.Letter;
-var Digit = classifier.Digit;
-var Space = classifier.Space;
-var Other = classifier.Other;
-var Delimiter = classifier.Delimiter;
-var Operator = classifier.Operator;
+var Char = classifier.Char;
 
 function all(items, value) {
     var l = items.length;
@@ -32,7 +27,7 @@ exports['letter'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 1);
-    test.equal(result[0], Letter);
+    test.equal(result[0], Char.Letter);
 };
 
 exports['digit'] = function (test) {
@@ -41,7 +36,7 @@ exports['digit'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 1);
-    test.equal(result[0], Digit);
+    test.equal(result[0], Char.Digit);
 };
 
 exports['whitespaces'] = function (test) {
@@ -50,7 +45,7 @@ exports['whitespaces'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 4);
-    test.ok(all(result, Space));
+    test.ok(all(result, Char.Space));
 };
 
 exports['other'] = function (test) {
@@ -59,7 +54,7 @@ exports['other'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 4);
-    test.ok(all(result, Other));
+    test.ok(all(result, Char.Other));
 };
 
 exports['delimiters'] = function (test) {
@@ -68,7 +63,7 @@ exports['delimiters'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 5);
-    test.ok(all(result, Delimiter));
+    test.ok(all(result, Char.Delimiter));
 };
 
 exports['operators'] = function (test) {
@@ -77,6 +72,6 @@ exports['operators'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 4);
-    test.ok(all(result, Operator));
+    test.ok(all(result, Char.Operator));
 };
 
