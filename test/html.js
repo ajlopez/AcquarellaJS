@@ -7,6 +7,12 @@ exports['get name as html'] = function (test) {
     test.equal(result, "<span class='acqname'>foo</span>");
 }
 
+exports['get name with spaces as html'] = function (test) {
+    var result = acq.toHtml('  foo ');
+    
+    test.equal(result, "  <span class='acqname'>foo</span> ");
+}
+
 exports['get two names as html'] = function (test) {
     var result = acq.toHtml('foo bar');
     
@@ -17,4 +23,10 @@ exports['get number as html'] = function (test) {
     var result = acq.toHtml('42');
     
     test.equal(result, "<span class='acqnumber'>42</span>");
+}
+
+exports['get two numbers as html'] = function (test) {
+    var result = acq.toHtml('4 2');
+    
+    test.equal(result, "<span class='acqnumber'>4</span> <span class='acqnumber'>2</span>");
 }
