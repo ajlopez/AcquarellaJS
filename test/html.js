@@ -12,3 +12,9 @@ exports['get two names as html'] = function (test) {
     
     test.equal(result, "<span class='acqname'>foo</span> <span class='acqname'>bar</span>");
 }
+
+exports['get number as html'] = function (test) {
+    var result = acq.toHtml('42');
+    
+    test.equal(result, "<span class='acqnumber'>42</span>");
+}
