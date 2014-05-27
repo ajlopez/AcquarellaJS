@@ -36,3 +36,9 @@ exports['get two numbers as html'] = function (test) {
     
     test.equal(result, "<span class='acqnumber'>4</span> <span class='acqnumber'>2</span>");
 }
+
+exports['get delimiters as html'] = function (test) {
+    var result = acq.toHtml(';,{}.', { delimiters: ";,{}." });
+    
+    test.equal(result, "<span class='acqdelimiter'>;,{}.</span>");
+}
