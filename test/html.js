@@ -42,3 +42,9 @@ exports['get delimiters as html'] = function (test) {
     
     test.equal(result, "<span class='acqdelimiter'>;,{}.</span>");
 }
+
+exports['get operators as html'] = function (test) {
+    var result = acq.toHtml('=!&|', { operators: "=!&|" });
+    
+    test.equal(result, "<span class='acqoperator'>=!&|</span>");
+}
