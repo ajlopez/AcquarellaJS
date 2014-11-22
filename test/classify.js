@@ -75,3 +75,11 @@ exports['operators'] = function (test) {
     test.ok(all(result, Char.Operator));
 };
 
+exports['double quoted string'] = function (test) {
+    var result = classifier.classify('"foo"', { strings: '"' });
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 5);
+    test.ok(all(result, Char.String));
+};

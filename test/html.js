@@ -48,3 +48,10 @@ exports['get operators as html'] = function (test) {
     
     test.equal(result, "<span class='acqoperator'>=!&|</span>");
 }
+
+exports['get double quoted string'] = function (test) {
+    var result = acq.toHtml('"foo"', { strings: '"' });
+    
+    test.equal(result, "<span class='acqstring'>\"foo\"</span>");
+}
+
