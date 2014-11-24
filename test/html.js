@@ -50,7 +50,7 @@ exports['get operators as html'] = function (test) {
 }
 
 exports['get double quoted string'] = function (test) {
-    var result = acq.toHtml('"foo"', { strings: '"' });
+    var result = acq.toHtml('"foo"', { strings: { delimiter: '"' } });
     
     test.equal(result, "<span class='acqstring'>\"foo\"</span>");
 }

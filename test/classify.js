@@ -76,7 +76,7 @@ exports['operators'] = function (test) {
 };
 
 exports['double quoted string'] = function (test) {
-    var result = classifier.classify('"foo"', { strings: '"' });
+    var result = classifier.classify('"foo"', { strings: { delimiter: '"' } });
     
     test.ok(result);
     test.ok(Array.isArray(result));
