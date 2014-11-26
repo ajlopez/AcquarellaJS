@@ -55,3 +55,9 @@ exports['get double quoted string'] = function (test) {
     test.equal(result, "<span class='acqstring'>\"foo\"</span>");
 }
 
+exports['get double quoted string with escape character'] = function (test) {
+    var result = acq.toHtml('"foo\\\"bar"', { strings: { delimiter: '"', escape: '\\' } });
+    
+    test.equal(result, "<span class='acqstring'>\"foo\\\"bar\"</span>");
+}
+

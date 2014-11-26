@@ -83,3 +83,12 @@ exports['double quoted string'] = function (test) {
     test.equal(result.length, 5);
     test.ok(all(result, Char.String));
 };
+
+exports['double quoted string with escape character'] = function (test) {
+    var result = classifier.classify('"foo\\\"bar"', { strings: { delimiter: '"', escape: '\\' } });
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 10);
+    test.ok(all(result, Char.String));
+};
