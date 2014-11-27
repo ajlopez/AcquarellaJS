@@ -30,6 +30,28 @@ exports['letter'] = function (test) {
     test.equal(result[0], Char.Letter);
 };
 
+exports['reserverd word'] = function (test) {
+    var result = classifier.classify('for', { reserved: ['if', 'for', 'while'] });
+
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 3);
+    test.ok(all(result, Char.Reserved));
+};
+
+exports['reserverd words'] = function (test) {
+    var result = classifier.classify('for k if', { reserved: ['if', 'for', 'while'] });
+
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 8);
+    test.ok(all(result.slice(0,3), Char.Reserved));
+    test.equal(result[3], Char.Space);
+    test.equal(result[4], Char.Letter);
+    test.equal(result[5], Char.Space);
+    test.ok(all(result.slice(6,8), Char.Reserved));
+};
+
 exports['digit'] = function (test) {
     var result = classifier.classify('0');
     
