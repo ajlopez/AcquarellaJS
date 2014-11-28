@@ -61,3 +61,9 @@ exports['get double quoted string with escape character'] = function (test) {
     test.equal(result, "<span class='acqstring'>\"foo\\\"bar\"</span>");
 }
 
+exports['recognize reserved words'] = function (test) {
+    var result = acq.toHtml('if k', { reserved: [ 'if', 'for', 'while' ] });
+    
+    test.equal(result, "<span class='acqreserved'>if</span> <span class='acqname'>k</span>");
+}
+
