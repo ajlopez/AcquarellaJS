@@ -25,6 +25,18 @@ exports['get name with underscore as html'] = function (test) {
     test.equal(result, "<span class='acqname'>foo_42</span>");
 }
 
+exports['get name starting with dollar'] = function (test) {
+    var result = acq.toHtml('$foo');
+    
+    test.equal(result, "<span class='acqname'>$foo</span>");
+}
+
+exports['get name starting with underscore'] = function (test) {
+    var result = acq.toHtml('_foo');
+    
+    test.equal(result, "<span class='acqname'>_foo</span>");
+}
+
 exports['get two names as html'] = function (test) {
     var result = acq.toHtml('foo bar');
     
