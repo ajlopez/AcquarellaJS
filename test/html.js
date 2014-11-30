@@ -19,6 +19,12 @@ exports['get name with digits as html'] = function (test) {
     test.equal(result, "<span class='acqname'>foo42</span>");
 }
 
+exports['get name with underscore as html'] = function (test) {
+    var result = acq.toHtml('foo_42');
+    
+    test.equal(result, "<span class='acqname'>foo_42</span>");
+}
+
 exports['get two names as html'] = function (test) {
     var result = acq.toHtml('foo bar');
     
