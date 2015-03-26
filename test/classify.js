@@ -121,5 +121,8 @@ exports['line comment'] = function (test) {
     test.ok(result);
     test.ok(Array.isArray(result));
     test.equal(result.length, 22);
-    test.ok(all(result, Char.Comment));
+    test.ok(all(result.slice(0, 3), Char.Letter));
+    test.ok(all(result.slice(3, 18), Char.Comment));
+    test.ok(all(result.slice(18, 19), Char.Space));
+    test.ok(all(result.slice(19, 22), Char.Letter));
 };
