@@ -114,3 +114,12 @@ exports['double quoted string with escape character'] = function (test) {
     test.equal(result.length, 10);
     test.ok(all(result, Char.String));
 };
+
+exports['line comment'] = function (test) {
+    var result = classifier.classify('foo// line comment\nbar', { comments: { line: '//' } });
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 22);
+    test.ok(all(result, Char.Comment));
+};
