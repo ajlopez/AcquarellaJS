@@ -126,3 +126,14 @@ exports['line comment'] = function (test) {
     test.ok(all(result.slice(18, 19), Char.Space));
     test.ok(all(result.slice(19, 22), Char.Letter));
 };
+
+exports['comment'] = function (test) {
+    var result = classifier.classify('foo/* line comment */bar', { comments: { start: '/*', end: '*/' } });
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 24);
+    test.ok(all(result.slice(0, 3), Char.Letter));
+    test.ok(all(result.slice(3, 21), Char.Comment));
+    test.ok(all(result.slice(21, 24), Char.Letter));
+};
