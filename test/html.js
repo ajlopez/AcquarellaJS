@@ -85,3 +85,9 @@ exports['recognize reserved words'] = function (test) {
     test.equal(result, "<span class='acqreserved'>if</span> <span class='acqname'>k</span>");
 }
 
+exports['recognize line comment'] = function (test) {
+    var result = acq.toHtml('// line comment', { comments: { line: '//' } });
+    
+    test.equal(result, "<span class='acqcomment'>// line comment</span>");
+}
+
