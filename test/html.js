@@ -91,3 +91,9 @@ exports['recognize line comment'] = function (test) {
     test.equal(result, "<span class='acqcomment'>// line comment</span>");
 }
 
+
+exports['recognize block comment'] = function (test) {
+    var result = acq.toHtml('/* line comment */', { comments: { start: '/*', end: '*/' } });
+    
+    test.equal(result, "<span class='acqcomment'>/* line comment */</span>");
+}
