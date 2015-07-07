@@ -61,6 +61,17 @@ exports['digit'] = function (test) {
     test.equal(result[0], Char.Digit);
 };
 
+exports['digit point digit'] = function (test) {
+    var result = classifier.classify('0.1');
+    
+    test.ok(result);
+    test.ok(Array.isArray(result));
+    test.equal(result.length, 3);
+    test.equal(result[0], Char.Digit);
+    test.equal(result[1], Char.Digit);
+    test.equal(result[2], Char.Digit);
+};
+
 exports['whitespaces'] = function (test) {
     var result = classifier.classify(' \r\n\t');
     

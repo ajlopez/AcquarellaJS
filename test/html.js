@@ -49,6 +49,12 @@ exports['get number as html'] = function (test) {
     test.equal(result, "<span class='acqnumber'>42</span>");
 }
 
+exports['get number with decimal point as html'] = function (test) {
+    var result = acq.toHtml('42.31');
+    
+    test.equal(result, "<span class='acqnumber'>42.31</span>");
+}
+
 exports['get two numbers as html'] = function (test) {
     var result = acq.toHtml('4 2');
     
